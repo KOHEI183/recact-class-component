@@ -8,7 +8,6 @@ class Increments extends React.Component {
     // 子クラスのconstructor()ではsuper()の前でthisを参照することはできない
     this.state = { count: 0 };
   }
-
   // 関数
   increment = (targetNum) =>
     this.setState({ count: this.state.count + targetNum });
@@ -18,7 +17,7 @@ class Increments extends React.Component {
   render() {
     return (
       <>
-        <p>Increments Class</p>
+        <p>{this.props.pageTitle}</p>
         <p>count : {this.state.count}</p>
         <div>
           {/* アロー関数にしないと無限描画する */}
