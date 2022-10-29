@@ -1,6 +1,11 @@
 /* eslint-disable valid-typeof */
 import React from "react";
 
+// 呼び刺される順番
+// 1. constructor()
+// 2. static getDerivedStateFromProps()
+// 3. render()
+// 4. componentDidMount()
 class LifeCycle extends React.Component {
   constructor() {
     console.debug("class LifeCycle");
@@ -12,7 +17,8 @@ class LifeCycle extends React.Component {
   }
 
   componentDidMount() {
-    // コンポーネントがマウント(配置)される直前に呼び出されるメソッド。
+    // コンポーネントがコンポーネントがマウントされた直後呼び出されるメソッド。
+    // すぐに setState() を呼び出すことができる
 
     // userを取得してみてライフサイクルではどうなるのか見る
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -22,10 +28,10 @@ class LifeCycle extends React.Component {
       });
 
     // componentDidUpdateを試してみる
-    const timer = setInterval(() => {
-      this.setState({ date: new Date() });
-    }, 1000);
-    this.setState({ timer });
+    // const timer = setInterval(() => {
+    //   this.setState({ date: new Date() });
+    // }, 5000);
+    // this.setState({ timer });
 
     console.debug(
       "componentDidMount",
@@ -41,6 +47,9 @@ class LifeCycle extends React.Component {
     );
   }
   componentWillUnmount() {
+    // コンポーネントがアンマウントされて破棄される直前に呼び出される
+    // 画面遷移直前
+
     clearInterval(this.state.timer);
     console.debug(
       "componentWillUnmount",

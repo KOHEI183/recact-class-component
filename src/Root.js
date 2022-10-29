@@ -4,6 +4,7 @@ import { Increments, LifeCycle } from "./components/EntryPoint.tsx";
 
 // class component名 React.Componentを継承する
 // React.Component サブクラスにはrenderメソッドを定義しなければならない
+// state の初期化もメソッドのバインドもしないのであれば、React コンポーネントのコンストラクタを実装する必要はない
 class Root extends React.Component {
   constructor(props) {
     console.debug("class Root");
