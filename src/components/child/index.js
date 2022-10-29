@@ -9,6 +9,8 @@ class Child extends React.Component {
         <button onClick={() => this.props.callBack()}>
           親のincrement関数をclick
         </button>
+        {/* ChildからParentに値を送る */}
+        <input onChange={(e) => this.props.onChangeInput(e)} />
       </>
     );
   }

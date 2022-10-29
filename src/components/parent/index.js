@@ -12,6 +12,9 @@ class Parent extends React.Component {
   propsIncrement = () => {
     this.setState((prev) => ({ count: prev.count + 1 }));
   };
+  onChangeInput = (e) => {
+    console.log(e.target.value);
+  };
 
   render() {
     const { pageTitle } = this.props;
@@ -20,7 +23,11 @@ class Parent extends React.Component {
       <>
         <p>{pageTitle.parent}</p>
         <p>{this.state.count}</p>
-        <Child pageTitle={pageTitle.child} callBack={this.propsIncrement} />
+        <Child
+          pageTitle={pageTitle.child}
+          callBack={this.propsIncrement}
+          onChangeInput={this.onChangeInput}
+        />
       </>
     );
   }
