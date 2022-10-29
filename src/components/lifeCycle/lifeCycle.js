@@ -28,10 +28,10 @@ class LifeCycle extends React.Component {
       });
 
     // componentDidUpdateを試してみる
-    // const timer = setInterval(() => {
-    //   this.setState({ date: new Date() });
-    // }, 5000);
-    // this.setState({ timer });
+    const timer = setInterval(() => {
+      this.setState({ date: new Date() });
+    }, 5000);
+    this.setState({ timer });
 
     console.debug(
       "componentDidMount",
