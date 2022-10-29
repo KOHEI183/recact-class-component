@@ -1,6 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Increments, LifeCycle } from "./components/EntryPoint.tsx";
+import {
+  Increments,
+  LifeCycle,
+  Bind,
+  Parent,
+} from "./components/EntryPoint.tsx";
 
 // class component名 React.Componentを継承する
 // React.Component サブクラスにはrenderメソッドを定義しなければならない
@@ -11,8 +16,11 @@ class Root extends React.Component {
     super(props);
     this.state = {
       pageTitle: {
-        increments: "Increments component",
+        increments: "increments component",
         lifeCycle: "lifeCycle component",
+        bind: "bind component",
+        parent: "parent component",
+        child: "child component",
       },
     };
   }
@@ -24,6 +32,10 @@ class Root extends React.Component {
         <Increments pageTitle={this.state.pageTitle.increments} />
         <br />
         <LifeCycle pageTitle={this.state.pageTitle.lifeCycle} />
+        <br />
+        <Bind pageTitle={this.state.pageTitle.bind} />
+        <br />
+        <Parent pageTitle={this.state.pageTitle} />
       </div>
     );
   }
